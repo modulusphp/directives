@@ -12,7 +12,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "ModulusPHP\\Directives\\": ""
+      "Modulus\\Directives\\": ""
     }
   },
   "minimum-stability": "stable"
