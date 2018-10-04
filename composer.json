@@ -1,0 +1,19 @@
+{
+  "name": "modulusphp/directives",
+  "description": "Directives for modulusPHP",
+  "version": "1.9.0",
+  "license": "MIT",
+  "type": "package",
+  "authors": [
+    {
+      "name": "Donald Pakkies",
+      "email": "donaldpakkies@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ModulusPHP\\Directives\\": ""
+    }
+  },
+  "minimum-stability": "stable"
+}
