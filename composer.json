@@ -10,6 +10,9 @@
       "email": "donaldpakkies@gmail.com"
     }
   ],
+  "require": {
+    "atlantisphp/medusa": "^1.0"
+  },
   "autoload": {
     "psr-4": {
       "Modulus\\Directives\\": ""
