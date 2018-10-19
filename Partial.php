@@ -8,31 +8,31 @@ use Modulus\Directives\Exceptions\PartialNotFoundException;
 class Partial extends Directive
 {
   /**
-   * Views extension
-   *
-   * @var string $extension
-   */
+  * Views extension
+  *
+  * @var string $extension
+  */
   public static $extension;
 
-	/**
-   * Views path
-   *
-   * @var string $views
-   */
+  /**
+  * Views path
+  *
+  * @var string $views
+  */
   public static $views;
 
   /**
-   * Directive name
-   *
-   * @var string $name
-   */
+  * Directive name
+  *
+  * @var string $name
+  */
   protected $name = 'partial';
 
   /**
-   * Handle directive
-   *
-   * @return string
-   */
+  * Handle directive
+  *
+  * @return string
+  */
   public function message($view) : string
   {
     $view = $this->getPath($view);
@@ -47,34 +47,34 @@ class Partial extends Directive
   }
 
   /**
-	 * getPath
-	 *
-	 * @param string $path
-	 * @return string
-	 */
-	private function getPath(string $path) : string
-	{
-		$path = str_replace('"', "", $path);
-		$path = str_replace("'", "", $path);
+  * getPath
+  *
+  * @param string $path
+  * @return string
+  */
+  private function getPath(string $path) : string
+  {
+    $path = str_replace('"', "", $path);
+    $path = str_replace("'", "", $path);
 
-		$views = self::$views;
+    $views = self::$views;
     $file = explode('.', $path);
 
-		foreach($file as $name) {
-			if (is_dir($views . DIRECTORY_SEPARATOR . $name)) {
-				$views = $views . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR;
-			}
-			else {
-				$views = $views . (ends_with($views, '/') ? '' : '.') . $name;
-			}
-		}
+    foreach($file as $name) {
+      if (is_dir($views . DIRECTORY_SEPARATOR . $name)) {
+        $views = $views . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR;
+      }
+      else {
+        $views = $views . (ends_with($views, '/') ? '' : '.') . $name;
+      }
+    }
 
-		$parent = substr(self::$views, strrpos(self::$views, DIRECTORY_SEPARATOR) + 1);
+    $parent = substr(self::$views, strrpos(self::$views, DIRECTORY_SEPARATOR) + 1);
 
     if (str_contains($views, $parent . '.')) {
       $views = str_replace($parent . '.', $parent . DIRECTORY_SEPARATOR, $views);
     }
 
-		return str_replace(self::$views, '', $views);
-	}
+    return str_replace(self::$views, '', $views);
+  }
 }
