@@ -1,15 +1,13 @@
 {
   "name": "modulusphp/directives",
   "description": "Directives for modulusPHP",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "license": "MIT",
   "type": "package",
-  "authors": [
-    {
-      "name": "Donald Pakkies",
-      "email": "donaldpakkies@gmail.com"
-    }
-  ],
+  "authors": [{
+    "name": "Donald Pakkies",
+    "email": "donaldpakkies@gmail.com"
+  }],
   "require": {
     "atlantisphp/medusa": "^1.0"
   },
