@@ -14,6 +14,16 @@ class PartialNotFoundException extends Exception
    */
   public function __construct(string $view)
   {
+    $position = count(debug_backtrace()) == 21 ? 14 : 13;
+
+    if (isset(debug_backtrace()[$position])) {
+      $args = debug_backtrace()[$position];
+
+      foreach ($args as $key => $value) {
+        $this->{$key} = $value;
+      }
+    }
+
     $this->message = '"' . $view . '" does not exist.';
   }
 }
